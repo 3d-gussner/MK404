@@ -42,7 +42,7 @@ Camera::Camera(float eyex, float eyey, float eyez, float centerx, float centery,
 void Camera::initConstants()
 {
     currentMode_ = IDLE;
-    zoomSpeed_ = 10.0f;
+    zoomSpeed_ = 50.0f;
     windowWidth_ = 200;
     windowHeight_ = 200;
 }
