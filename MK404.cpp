@@ -297,7 +297,6 @@ int main(int argc, char *argv[])
 	SwitchArg argColourE("", "colour-extrusion", "Colours extrusion by width (for advanced step/extrusion debugging.", cmd, false);
 	SwitchArg argBootloader("b","bootloader","Run bootloader on first start instead of going straight to the firmware.",cmd);
 	SwitchArg argMD("","markdown","Used to auto-generate the items in refs/ as markdown",cmd);
-	SwitchArg arg3D("", "3d-extrusion", "Visualize with 3D extrusions (can be GPU intensive for large prints)", cmd);
 
 	std::vector<string> vstrPrinters = PrinterFactory::GetModels();
 	ValuesConstraint<string> vcAllowed(vstrPrinters);
@@ -351,7 +350,7 @@ int main(int argc, char *argv[])
 	}
 
 	void *pRawPrinter = PrinterFactory::CreatePrinter(argModel.getValue(),pBoard,printer,argBootloader.isSet(),argNoHacks.isSet(),argSerial.isSet(), argSD.getValue() ,
-		strFW,argSpam.getValue(), argGDB.isSet(), argVCDRate.getValue(),""); // this line is the CreateBoard() args.
+		strFW,argSpam.getValue(), argGDB.isSet(), argVCDRate.getValue(),"stk500boot_v2_mega2560.hex"); // this line is the CreateBoard() args.
 
 	pBoard->SetPrimary(true); // This is the primary board, responsible for scripting/dispatch. Blocks contention from sub-boards, e.g. MMU.
 
